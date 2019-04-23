@@ -150,4 +150,6 @@ Feedstock Maintainers
 
 * [@StephanSiemen](https://github.com/StephanSiemen/)
 * [@dtip](https://github.com/dtip/)
+* [@iainrussell](https://github.com/iainrussell/)
+* [@sk-ec](https://github.com/sk-ec/)
 
