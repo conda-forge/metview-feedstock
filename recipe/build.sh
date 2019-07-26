@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+set -x
 
 if [[ "$c_compiler" == "gcc" ]]; then
   export PATH="${PATH}:${BUILD_PREFIX}/${HOST}/sysroot/usr/lib"
