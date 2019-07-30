@@ -11,6 +11,12 @@ export PYTHON=
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib"
 export CFLAGS="$CFLAGS -fPIC -I$PREFIX/include"
 
+
+ls -l $BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/bin/rpcgen
+ldd $BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/bin/rpcgen
+ls -l /lib/ld-linux-x86-64.*
+
+
 mkdir ../build && cd ../build
 
 # A few tests are currently failing - these appear to be issues with the code rather than with the
