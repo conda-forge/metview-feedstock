@@ -19,6 +19,7 @@ ls -l $CPP
 ldd   $CPP
 
 ls -l /lib64/ld-linux-x86-64*
+ls -l /lib64/ld-2.12.so*
 
 mkdir ../build && cd ../build
 
