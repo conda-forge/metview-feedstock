@@ -14,6 +14,7 @@ export CFLAGS="$CFLAGS -fPIC -I$PREFIX/include"
 
 ls -l $BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/bin/rpcgen
 ldd $BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/bin/rpcgen
+file $BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/bin/rpcgen
 
 ls -l $CPP
 ldd   $CPP
