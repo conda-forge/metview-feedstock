@@ -66,7 +66,7 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D RPCGEN_USE_CPP_ENV=$RPCGEN_USE_CPP_ENV \
       $SRC_DIR
 
-make -j $CPU_COUNT
+make -j $CPU_COUNT VERBOSE=1
 
 ctest --output-on-failure -j $CPU_COUNT -I test_list.txt
 make install
