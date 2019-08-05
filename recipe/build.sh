@@ -18,6 +18,9 @@ ls -l `which rpcgen`
 ldd `which rpcgen`
 file `which rpcgen`
 
+rpcgen --help
+`which rpcgen` --help
+
 ls -l $CPP
 ldd   $CPP
 file  $CPP
