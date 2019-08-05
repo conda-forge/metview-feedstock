@@ -10,7 +10,7 @@ fi
 export PYTHON=
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib"
 export CFLAGS="$CFLAGS -fPIC -I$PREFIX/include"
-export LD_LIBRARY_PATH="/lib64:$LD_LIBRARY_PATH"
+#export LD_LIBRARY_PATH="/lib64:$LD_LIBRARY_PATH"
 
 
 which rpcgen
