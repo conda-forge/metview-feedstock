@@ -68,6 +68,7 @@ if [[ $(uname) == Linux ]]; then
     ln -s "$CPP" ./cpp
     export CPP="$PWD/cpp"
     RPCGEN_USE_CPP_ENV=1
+    RPCGEN_PATH_FLAGS="-DRPCGEN_PATH=/usr/bin"
 else
     RPCGEN_USE_CPP_ENV=0
 fi
@@ -77,6 +78,7 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D ENABLE_FORTRAN=OFF \
       -D ENABLE_METVIEW_FORTRAN=OFF \
       -D RPCGEN_USE_CPP_ENV=$RPCGEN_USE_CPP_ENV \
+      $RPCGEN_PATH_FLAGS \
       $SRC_DIR
 
 make -j $CPU_COUNT VERBOSE=1
