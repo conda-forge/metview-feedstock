@@ -18,6 +18,7 @@ file $BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/bin/rpcgen
 
 ls -l $CPP
 ldd   $CPP
+file  $CPP
 
 ls -l /lib64/ld-linux-x86-64*
 ls -l /lib64/ld-2.12.so*
