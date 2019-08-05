@@ -21,6 +21,9 @@ file `which rpcgen`
 rpcgen --help
 `which rpcgen` --help
 
+$BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/bin/rpcgen --help
+
+
 ls -l $CPP
 ldd   $CPP
 file  $CPP
