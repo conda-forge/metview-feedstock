@@ -25,8 +25,8 @@ file  $CPP
 ls -l /lib64/ld-linux-x86-64*
 ls -l /lib64/ld-2.12.so*
 
-ls -l /lib/ld-linux-x86-64.so.2
-file  /lib/ld-linux-x86-64.so.2
+#ls -l /lib/ld-linux-x86-64.so.2
+#file  /lib/ld-linux-x86-64.so.2
 
 
 mkdir ../build && cd ../build
