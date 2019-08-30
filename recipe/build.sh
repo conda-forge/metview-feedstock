@@ -12,7 +12,7 @@ export LDFLAGS="$LDFLAGS -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib"
 export CFLAGS="$CFLAGS -fPIC -I$PREFIX/include"
 #export LD_LIBRARY_PATH="/lib64:$LD_LIBRARY_PATH"
 
-
+pwd
 which rpcgen
 ls -l `which rpcgen`
 ldd `which rpcgen`
