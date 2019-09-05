@@ -35,7 +35,7 @@ requirements:
   host:
     - curl
     - eccodes
-    - magics >=4.1.2
+    - magics >=4.1.2 hbb1a0f9_3
     - boost
     - qt >=5.9.7
     - flex
