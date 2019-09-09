@@ -12,27 +12,6 @@ export LDFLAGS="$LDFLAGS -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib"
 export CFLAGS="$CFLAGS -fPIC -I$PREFIX/include"
 #export LD_LIBRARY_PATH="/lib64:$LD_LIBRARY_PATH"
 
-pwd
-which rpcgen
-ls -l `which rpcgen`
-ldd `which rpcgen`
-file `which rpcgen`
-
-rpcgen --help
-`which rpcgen` --help
-
-#$BUILD_PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/bin/rpcgen --help
-
-
-ls -l $CPP
-ldd   $CPP
-file  $CPP
-
-ls -l /lib64/ld-linux-x86-64*
-ls -l /lib64/ld-2.12.so*
-
-#ls -l /lib/ld-linux-x86-64.so.2
-#file  /lib/ld-linux-x86-64.so.2
 
 
 mkdir ../build && cd ../build
