@@ -44,7 +44,7 @@ if [[ $(uname) == Linux ]]; then
     # 98:  eckit_test_sql_select
     # 457: inline_c.mv_dummy_target
     # 458: inline_fortran.mv_dummy_target
-    export TESTS_TO_SKIP="98,457,458"
+    export TESTS_TO_SKIP="98,457,458,461"
 elif [[ $(uname) == Darwin ]]; then
     # 98:  eckit_test_sql_select
     # 425: test_interpolation_rgg2ll_req
@@ -54,7 +54,7 @@ elif [[ $(uname) == Darwin ]]; then
     # 432: test_retrieve_fdb_uv_ml_req
     # 457: inline_c.mv_dummy_target
     # 458: inline_fortran.mv_dummy_target
-    export TESTS_TO_SKIP="98,425,426,427,431,432,457,458"
+    export TESTS_TO_SKIP="98,425,426,427,431,432,457,458,461"
 fi
 NUM_TESTS=472 python $RECIPE_DIR/gen_test_list.py
 
