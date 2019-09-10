@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+set -x
 
 if [[ "$c_compiler" == "gcc" ]]; then
   export PATH="${PATH}:${BUILD_PREFIX}/${HOST}/sysroot/usr/lib"
@@ -9,6 +10,9 @@ fi
 export PYTHON=
 export LDFLAGS="$LDFLAGS -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib"
 export CFLAGS="$CFLAGS -fPIC -I$PREFIX/include"
+#export LD_LIBRARY_PATH="/lib64:$LD_LIBRARY_PATH"
+
+
 
 mkdir ../build && cd ../build
 
@@ -19,7 +23,7 @@ if [[ $(uname) == Linux ]]; then
     # 98:  eckit_test_sql_select
     # 457: inline_c.mv_dummy_target
     # 458: inline_fortran.mv_dummy_target
-    export TESTS_TO_SKIP="98,457,458"
+    export TESTS_TO_SKIP="98,457,458,461"
 elif [[ $(uname) == Darwin ]]; then
     # 98:  eckit_test_sql_select
     # 425: test_interpolation_rgg2ll_req
@@ -29,7 +33,7 @@ elif [[ $(uname) == Darwin ]]; then
     # 432: test_retrieve_fdb_uv_ml_req
     # 457: inline_c.mv_dummy_target
     # 458: inline_fortran.mv_dummy_target
-    export TESTS_TO_SKIP="98,425,426,427,431,432,457,458"
+    export TESTS_TO_SKIP="98,425,426,427,431,432,457,458,461"
 fi
 NUM_TESTS=472 python $RECIPE_DIR/gen_test_list.py
 
@@ -43,16 +47,20 @@ if [[ $(uname) == Linux ]]; then
     ln -s "$CPP" ./cpp
     export CPP="$PWD/cpp"
     RPCGEN_USE_CPP_ENV=1
+    RPCGEN_PATH_FLAGS="-DRPCGEN_PATH=/usr/bin"
 else
     RPCGEN_USE_CPP_ENV=0
 fi
 
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D ENABLE_DOCS=0 \
+      -D ENABLE_FORTRAN=OFF \
+      -D ENABLE_METVIEW_FORTRAN=OFF \
       -D RPCGEN_USE_CPP_ENV=$RPCGEN_USE_CPP_ENV \
+      $RPCGEN_PATH_FLAGS \
       $SRC_DIR
 
-make -j $CPU_COUNT
+make -j $CPU_COUNT VERBOSE=1
 
 ctest --output-on-failure -j $CPU_COUNT -I test_list.txt
 make install
