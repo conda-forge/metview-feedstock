@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost:
-- 1.68.0
+- 1.70.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -33,7 +33,3 @@ pin_run_as_build:
     max_pin: x
   libnetcdf:
     max_pin: x.x.x
-  qt:
-    max_pin: x.x
-qt:
-- '5.6'
