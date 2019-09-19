@@ -1,0 +1,27 @@
+From 885972e0c3cc5d251c39023f5c88b7756b862f3b Mon Sep 17 00:00:00 2001
+From: Iain Russell <Iain.Russell@ecmwf.int>
+Date: Thu, 19 Sep 2019 10:07:12 +0100
+Subject: [PATCH] BUILD: fix macos issues on conda [METV-2497]
+
+---
+ CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 34753b57..5a1bc0d9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,6 +22,10 @@
+ 
+ cmake_minimum_required( VERSION 3.6.0 FATAL_ERROR )
+ 
++if(POLICY CMP0025)
++  cmake_policy(SET CMP0025 NEW)
++endif()
++
+ project( metview C CXX )
+ 
+ 
+-- 
+2.13.7
+
