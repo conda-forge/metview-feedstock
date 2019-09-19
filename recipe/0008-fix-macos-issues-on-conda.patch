@@ -9,8 +9,8 @@ Subject: [PATCH] BUILD: fix macos issues on conda [METV-2497]
 
 diff --git a/metview/CMakeLists.txt b/metview/CMakeLists.txt
 index 34753b57..5a1bc0d9 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
+--- a/metview/CMakeLists.txt
++++ b/metview/CMakeLists.txt
 @@ -22,6 +22,10 @@
  
  cmake_minimum_required( VERSION 3.6.0 FATAL_ERROR )
