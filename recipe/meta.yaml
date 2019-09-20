@@ -12,6 +12,7 @@ source:
     - 0006-Pass-CPP-to-rpcgen.patch
     - 0007-Allow-to-build-without-Fortran-compiler.patch
     - 0008-fix-macos-issues-on-conda.patch
+    - 0009-Minimum-CMake-version-of-3.6.0.patch
 
 build:
   number: 0
