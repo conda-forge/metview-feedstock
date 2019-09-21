@@ -57,7 +57,8 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
 
 make -j $CPU_COUNT VERBOSE=1
 
-echo "Ignoring the following tests:"
+echo "Including the following tests:"
 cat test_list.txtcd metview
-ctest --output-on-failure -j $CPU_COUNT -I test_list.txt
+#ctest --output-on-failure -j $CPU_COUNT -I test_list.txt
+ctest --output-on-failure
 make install
