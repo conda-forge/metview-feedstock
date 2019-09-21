@@ -29,7 +29,7 @@ elif [[ $(uname) == Darwin ]]; then
     # 40: thermo.mv_dummy_target (fixed in Metview 5.7.0)
     export TESTS_TO_SKIP="25,34,40"
 fi
-NUM_TESTS=472 python $RECIPE_DIR/gen_test_list.py
+NUM_TESTS=47 python $RECIPE_DIR/gen_test_list.py
 
 if [[ $(uname) == Linux ]]; then
     # rpcgen searches for cpp in /lib/cpp and /cpp.
