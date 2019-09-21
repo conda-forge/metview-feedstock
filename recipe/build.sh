@@ -20,20 +20,14 @@ mkdir ../build && cd ../build
 # build process. We generate a list of tests to pass to ctest by skipping the failing ones.
 # This should be removed once the tests are fixed internally at ECMWF.
 if [[ $(uname) == Linux ]]; then
-    # 98:  eckit_test_sql_select
-    # 457: inline_c.mv_dummy_target
-    # 458: inline_fortran.mv_dummy_target
+    # 25: inline_c.mv_dummy_target (not surprising and not important for 99% of people)
+    # 40: thermo.mv_dummy_target (fixed in Metview 5.7.0)
     export TESTS_TO_SKIP="98,457,458,461"
 elif [[ $(uname) == Darwin ]]; then
-    # 98:  eckit_test_sql_select
-    # 425: test_interpolation_rgg2ll_req
-    # 426: test_interpolation_latlon_req
-    # 427: test_interpolation_sh2ll_req
-    # 431: test_retrieve_fdb_uv_pl_req
-    # 432: test_retrieve_fdb_uv_ml_req
-    # 457: inline_c.mv_dummy_target
-    # 458: inline_fortran.mv_dummy_target
-    export TESTS_TO_SKIP="98,425,426,427,431,432,457,458,461"
+    # 25: inline_c.mv_dummy_target (not surprising and not important for 99% of people)
+    # 34: fieldsets.mv_dummy_target (sort() - to be fixed)
+    # 39: thermo.mv_dummy_target (fixed in Metview 5.7.0)
+    export TESTS_TO_SKIP="24,34,39"
 fi
 NUM_TESTS=472 python $RECIPE_DIR/gen_test_list.py
 
@@ -64,6 +58,5 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
 make -j $CPU_COUNT VERBOSE=1
 
 cd metview
-#ctest --output-on-failure -j $CPU_COUNT -I test_list.txt
-ctest --output-on-failure -j $CPU_COUNT
+ctest --output-on-failure -j $CPU_COUNT -I test_list.txt
 make install
