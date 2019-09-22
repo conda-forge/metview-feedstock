@@ -61,5 +61,5 @@ echo "Including the following tests:"
 cat test_list.txt
 cd metview
 #ctest --output-on-failure -j $CPU_COUNT -I test_list.txt
-ctest --output-on-failure
+ctest --output-on-failure -I ../test_list.txt
 make install
