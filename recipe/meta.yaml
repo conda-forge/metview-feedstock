@@ -14,7 +14,7 @@ source:
     - 0009-Minimum-CMake-version-of-3.6.0.patch
 
 build:
-  number: 3
+  number: 4
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
