@@ -62,4 +62,5 @@ cat test_list.txt
 echo ""
 cd metview
 ctest --output-on-failure -j $CPU_COUNT -I ../test_list.txt
+cd ..
 make install
