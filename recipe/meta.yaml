@@ -1,4 +1,4 @@
-{% set version = "5.6.1" %}
+{% set version = "5.7.0" %}
 
 package:
   name: metview
@@ -6,15 +6,14 @@ package:
 
 source:
   url: https://confluence.ecmwf.int/download/attachments/3964985/Metview-{{ version }}-Source.tar.gz
-  sha256: 5e1abf46e290911fe90cb35957c45ab61901c285b9a70e195a04d17608b86fd0
+  sha256: a75c197d7a733956795bd259891ae20b6ef905c5faa35fba60c3e36039b54fde
   patches:
     - 0001-Use-find_package-instead-of-find_library-for-threads.patch
     - 0006-Pass-CPP-to-rpcgen.patch
     - 0007-Allow-to-build-without-Fortran-compiler.patch
-    - 0009-Minimum-CMake-version-of-3.6.0.patch
 
 build:
-  number: 4
+  number: 0
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
@@ -35,8 +34,8 @@ requirements:
     - {{ cdt('libxau') }}  # [linux]
   host:
     - curl
-    - eccodes
-    - magics 4.1.3
+    - eccodes >=2.14.0
+    - magics >=4.2.0
     - boost >=1.70.0
     - qt >=5.9.7
     - flex
@@ -45,8 +44,8 @@ requirements:
     - gdbm
     - fftw
   run:
-    - eccodes
-    - magics 4.1.3
+    - eccodes>=2.14.0
+    - magics >=4.2.0
     - qt >=5.9.7
     - flex
     - bison

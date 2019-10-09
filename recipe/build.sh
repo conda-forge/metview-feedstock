@@ -12,6 +12,11 @@ export LDFLAGS="$LDFLAGS -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib"
 export CFLAGS="$CFLAGS -fPIC -I$PREFIX/include"
 #export LD_LIBRARY_PATH="/lib64:$LD_LIBRARY_PATH"
 
+if [[ $(uname) == Linux ]]; then
+  # workaround for https://github.com/conda-forge/qt-feedstock/issues/123
+  sed -i 's|_qt5gui_find_extra_libs(EGL.*)|_qt5gui_find_extra_libs(EGL "EGL" "" "")|g' $PREFIX/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake
+  sed -i 's|_qt5gui_find_extra_libs(OPENGL.*)|_qt5gui_find_extra_libs(OPENGL "GL" "" "")|g' $PREFIX/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake
+fi
 
 
 mkdir ../build && cd ../build
@@ -21,15 +26,17 @@ mkdir ../build && cd ../build
 # This should be removed once the tests are fixed internally at ECMWF.
 if [[ $(uname) == Linux ]]; then
     # 25: inline_c.mv_dummy_target (not surprising and not important for 99% of people)
-    # 40: thermo.mv_dummy_target (fixed in Metview 5.7.0)
-    export TESTS_TO_SKIP="25,40"
+    export TESTS_TO_SKIP="25"
 elif [[ $(uname) == Darwin ]]; then
     # 25: inline_c.mv_dummy_target (not surprising and not important for 99% of people)
-    # 34: fieldsets.mv_dummy_target (sort() - to be fixed)
-    # 40: thermo.mv_dummy_target (fixed in Metview 5.7.0)
-    export TESTS_TO_SKIP="25,34,40"
+    # 36: geopoints.mv_dummy_target (only fails on macos on conda)
+    # 41: thermo.mv_dummy_target (fixed in Metview 5.8.0)
+    export TESTS_TO_SKIP="25,36,41"
 fi
-NUM_TESTS=47 python $RECIPE_DIR/gen_test_list.py
+
+# NUM_TESTS should be at least the total number of tests that we have;
+# it does no harm to have a larger number
+NUM_TESTS=99 python $RECIPE_DIR/gen_test_list.py
 
 if [[ $(uname) == Linux ]]; then
     # rpcgen searches for cpp in /lib/cpp and /cpp.
