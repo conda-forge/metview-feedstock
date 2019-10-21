@@ -13,7 +13,7 @@ source:
     - 0007-Allow-to-build-without-Fortran-compiler.patch
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
@@ -34,7 +34,7 @@ requirements:
     - {{ cdt('libxau') }}  # [linux]
   host:
     - curl
-    - eccodes >=2.14.0
+    - eccodes >=2.14.1
     - magics >=4.2.0
     - boost >=1.70.0
     - qt >=5.9.7
@@ -44,7 +44,7 @@ requirements:
     - gdbm
     - fftw
   run:
-    - eccodes>=2.14.0
+    - eccodes>=2.14.1
     - magics >=4.2.0
     - qt >=5.9.7
     - flex
