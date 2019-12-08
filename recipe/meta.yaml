@@ -1,11 +1,12 @@
+{% set name = "Metview" %}
 {% set version = "5.7.0" %}
 
 package:
-  name: metview
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://confluence.ecmwf.int/download/attachments/3964985/Metview-{{ version }}-Source.tar.gz
+  url: https://confluence.ecmwf.int/download/attachments/3964985/{{ name }}-{{ version }}-Source.tar.gz
   sha256: a75c197d7a733956795bd259891ae20b6ef905c5faa35fba60c3e36039b54fde
   patches:
     - 0001-Use-find_package-instead-of-find_library-for-threads.patch
@@ -13,16 +14,16 @@ source:
     - 0007-Allow-to-build-without-Fortran-compiler.patch
 
 build:
-  number: 8
+  number: 9
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
 requirements:
   build:
     - cmake
+    - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-#    - {{ compiler('fortran') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
     - {{ cdt('libselinux') }}  # [linux]
@@ -35,7 +36,7 @@ requirements:
   host:
     - curl
     - eccodes >=2.14.1
-    - magics >=4.2.0
+    - magics-metview >=4.2.0
     - boost >=1.70.0
     - qt >=5.9.7
     - flex
@@ -43,9 +44,11 @@ requirements:
     - libnetcdf
     - gdbm
     - fftw
+    # See https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
+    - xorg-libfixes
   run:
     - eccodes >=2.14.1
-    - magics >=4.2.0
+    - magics-metview >=4.2.0
     - qt >=5.9.7
     - flex
     - bison
@@ -60,10 +63,10 @@ test:
 
 about:
   home: https://confluence.ecmwf.int/display/METV/
-  license: Apache 2.0
+  license: Apache-2.0
   license_family: Apache
   license_file: metview/LICENSE
-  summary: ECMWF Metview Copyright 2007-2019 ECMWF.
+  summary: "ECMWF Metview Copyright 2007-2019 ECMWF."
 
 extra:
   recipe-maintainers:
