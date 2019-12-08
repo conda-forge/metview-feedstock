@@ -3,7 +3,7 @@ About metview
 
 Home: https://confluence.ecmwf.int/display/METV/
 
-Package license: Apache 2.0
+Package license: Apache-2.0
 
 Feedstock license: BSD 3-Clause
 
@@ -105,7 +105,7 @@ A feedstock is made up of a conda recipe (the instructions on what and how to bu
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.org/) it is possible to build and upload installable
+and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
 packages to the [conda-forge](https://anaconda.org/conda-forge)
 [Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
 
@@ -157,5 +157,5 @@ Feedstock Maintainers
 * [@StephanSiemen](https://github.com/StephanSiemen/)
 * [@dtip](https://github.com/dtip/)
 * [@iainrussell](https://github.com/iainrussell/)
-* [@sk-ec](https://github.com/sk-ec/)
+* [@sandorkertesz](https://github.com/sandorkertesz/)
 
