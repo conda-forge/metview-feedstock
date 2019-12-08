@@ -14,10 +14,14 @@ cxx_compiler_version:
 - '7'
 docker_image:
 - condaforge/linux-anvil-comp7
+fftw:
+- '3'
 libnetcdf:
 - 4.7.1
 pin_run_as_build:
   curl:
+    max_pin: x
+  fftw:
     max_pin: x
   libnetcdf:
     max_pin: x.x.x
