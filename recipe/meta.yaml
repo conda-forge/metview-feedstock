@@ -45,7 +45,7 @@ requirements:
     - gdbm
     - fftw
     # See https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
-    - xorg-libfixes
+    - xorg-libxfixes  # [linux]
   run:
     - eccodes >=2.14.1
     - magics-metview >=4.2.0
