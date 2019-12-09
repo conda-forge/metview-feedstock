@@ -36,7 +36,7 @@ requirements:
   host:
     - curl
     - eccodes >=2.14.1
-    - magics-metview >=4.2.0
+    - magics >=4.2.0
     - boost >=1.70.0
     - qt >=5.9.7
     - flex
@@ -48,7 +48,7 @@ requirements:
     - xorg-libxfixes  # [linux]
   run:
     - eccodes >=2.14.1
-    - magics-metview >=4.2.0
+    - magics >=4.2.0
     - qt >=5.9.7
     - flex
     - bison
