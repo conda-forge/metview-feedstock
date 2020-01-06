@@ -23,7 +23,7 @@ libblas:
 liblapack:
 - 3.8.0 *netlib
 libnetcdf:
-- 4.7.1
+- 4.7.3
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -31,8 +31,6 @@ pin_run_as_build:
     max_pin: x
   fftw:
     max_pin: x
-  libnetcdf:
-    max_pin: x.x.x
   qt:
     max_pin: x.x
 qt:
