@@ -33,8 +33,6 @@ requirements:
     - {{ cdt('libxcb') }}  # [linux]
     - {{ cdt('libxext') }}  # [linux]
     - {{ cdt('libxau') }}  # [linux]
-    - libblas
-    - liblapack
   host:
     - curl
     - eccodes
