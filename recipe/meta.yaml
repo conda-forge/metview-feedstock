@@ -14,7 +14,7 @@ source:
     - 0007-Allow-to-build-without-Fortran-compiler.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
@@ -44,6 +44,7 @@ requirements:
     - libnetcdf
     - gdbm
     - fftw
+    - openblas
     # See https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
     - xorg-libxfixes  # [linux]
   run:
@@ -55,6 +56,7 @@ requirements:
     - libnetcdf
     - gdbm
     - fftw
+    - openblas
 
 test:
   commands:
