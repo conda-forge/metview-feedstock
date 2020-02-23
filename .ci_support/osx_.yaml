@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost:
-- 1.70.0
+- '1.72'
 c_compiler:
 - clang
 c_compiler_version:
@@ -24,6 +24,8 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
 - '10.9'
+openblas:
+- 0.3.6
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -31,6 +33,8 @@ pin_run_as_build:
     max_pin: x
   fftw:
     max_pin: x
+  openblas:
+    max_pin: x.x.x
   qt:
     max_pin: x.x
 qt:
