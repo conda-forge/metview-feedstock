@@ -54,6 +54,7 @@ else
 fi
 
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
+      -D CMAKE_BUILD_TYPE=Release \
       -D ENABLE_DOCS=0 \
       -D ENABLE_FORTRAN=OFF \
       -D ENABLE_METVIEW_FORTRAN=OFF \
