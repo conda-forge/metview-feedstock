@@ -19,7 +19,7 @@ cxx_compiler_version:
 fftw:
 - '3'
 libnetcdf:
-- 4.7.3
+- 4.7.4
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
