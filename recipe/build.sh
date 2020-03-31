@@ -19,6 +19,11 @@ if [[ $(uname) == Linux ]]; then
 fi
 
 
+ls -la $SRC_DIR/metview/share/metview/app-defaults/UserDir
+ls -la $SRC_DIR/metview/share/metview/app-defaults/UserDir/System
+exit 1
+
+
 mkdir ../build && cd ../build
 
 # A few tests are currently failing - these appear to be issues with the code rather than with the
