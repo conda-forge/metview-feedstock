@@ -13,7 +13,7 @@ source:
     - 0006-Pass-CPP-to-rpcgen.patch
 
 build:
-  number: 5
+  number: 2
   skip: True  # [win]
   detect_binary_files_with_prefix: true
 
