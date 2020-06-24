@@ -1,47 +1,30 @@
-From 56b348f4eaef372e51e24a464ae9ec865ca4ed14 Mon Sep 17 00:00:00 2001
-From: Daniel Tipping <daniel@oldreliable.tech>
-Date: Fri, 29 Mar 2019 16:46:56 +0000
-Subject: [PATCH] Pass $CPP to rcpgen
+From e7f1f9f6e83f8969a92c054df67520778cc9ddb9 Mon Sep 17 00:00:00 2001
+From: Iain Russell <Iain.Russell@ecmwf.int>
+Date: Wed, 24 Jun 2020 17:41:31 +0100
+Subject: [PATCH] Pass-CPP-to-rpcgen
 
 ---
- mars-client/src/CMakeLists.txt | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ src/CMakeLists.txt | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/mars-client/src/CMakeLists.txt b/mars-client/src/CMakeLists.txt
-index cbc7cb7..4c0f274 100644
---- a/mars-client/src/CMakeLists.txt
-+++ b/mars-client/src/CMakeLists.txt
-@@ -171,6 +171,14 @@ else()
-     ecbuild_critical("Found neither flex nor lex")
- endif()
+diff --git mars-client/src/CMakeLists.txt b/src/CMakeLists.txt
+index e3e4624..eeb934e 100644
+--- mars-client/src/CMakeLists.txt
++++ mars-client/src/CMakeLists.txt
+@@ -205,6 +205,13 @@ if(MARS_CLIENT_HAVE_RPC)
+     ecbuild_critical("Could not find rpcgen. Please provide RPCGEN_PATH.")
+   endif()
  
-+set(_rpcgen_cmd rpcgen)
-+if(RPCGEN_USE_CPP_ENV AND DEFINED ENV{CPP})
++  if(RPCGEN_USE_CPP_ENV AND DEFINED ENV{CPP})
 +    get_filename_component(_rpcgen_cpp $ENV{CPP} DIRECTORY)
-+    list(APPEND _rpcgen_cmd -Y ${_rpcgen_cpp})
-+elseif(RPCGEN_USE_CPP_ENV)
++    list(APPEND RPCGEN_EXECUTABLE -Y ${_rpcgen_cpp})
++  elseif(RPCGEN_USE_CPP_ENV)
 +    ecbuild_critical("$CPP not found in environment")
-+endif()
++  endif()
 +
- # targets
+   # targets
  
- configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/rpcmars.x ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.x COPYONLY )
-@@ -178,13 +186,13 @@ configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/rpcmars.x ${CMAKE_CURRENT_BINARY_DIR
- add_custom_command(
-     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.h
- 	COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.h
--	COMMAND rpcgen -h -o ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.h ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.x
-+    COMMAND ${_rpcgen_cmd} -h -o ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.h ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.x
-     DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.x )
- 
- add_custom_command(
-     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/marsxdr.c
- 	COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_CURRENT_BINARY_DIR}/marsxdr.c
--	COMMAND rpcgen -c -o ${CMAKE_CURRENT_BINARY_DIR}/marsxdr.c ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.x
-+	COMMAND ${_rpcgen_cmd} -c -o ${CMAKE_CURRENT_BINARY_DIR}/marsxdr.c ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.x
-     DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.x )
- 
- add_custom_command(
+   configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/rpcmars.x ${CMAKE_CURRENT_BINARY_DIR}/rpcmars.x COPYONLY )
 -- 
-2.19.1
+2.13.7
 
