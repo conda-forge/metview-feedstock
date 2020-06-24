@@ -10,7 +10,6 @@ source:
   sha256: 6bbcf15602a21c8fee4276ec11179c6f95247eeaf08a870181ec339a7c5b80ba
   patches:
     - 0001-Use-find_package-instead-of-find_library-for-threads.patch
-    - 0006-Pass-CPP-to-rpcgen.patch
 
 build:
   number: 0
