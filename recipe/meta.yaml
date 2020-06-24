@@ -34,8 +34,8 @@ requirements:
     - {{ cdt('libxau') }}  # [linux]
   host:
     - curl
-    - eccodes >=2.17.0
-    - magics-metview
+    - eccodes >=2.18.0
+    - magics-metview >=4.4.0
     - boost
     - qt
     - flex
