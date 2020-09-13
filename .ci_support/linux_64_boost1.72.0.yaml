@@ -1,5 +1,5 @@
 boost:
-- '1.72'
+- 1.72.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -33,3 +33,5 @@ pin_run_as_build:
     max_pin: x.x
 qt:
 - '5.12'
+target_platform:
+- linux-64
