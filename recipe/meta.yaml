@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://confluence.ecmwf.int/download/attachments/30048389/{{ name }}-{{ version }}-Source.tar.gz
-  sha256: 90c1224d2abf081b2ed62d914763c036ce044dfe33debd2df83e2c0b62182cdf
+  sha256: ff6342446c2a98c08dd253b3a40747d6abdaa93e6dae2f50a6f61f91a6fd17d1
   patches:
     - 0001-Use-find_package-instead-of-find_library-for-threads.patch
     - 0002-Pass-CPP-to-rpcgen.patch
