@@ -5,11 +5,9 @@ Home: https://confluence.ecmwf.int/display/METV/
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/metview-feedstock/blob/master/LICENSE.txt)
 
 Summary: ECMWF Metview Copyright 2007-2020 ECMWF.
-
-
 
 Current build status
 ====================
