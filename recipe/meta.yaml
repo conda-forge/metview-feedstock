@@ -47,8 +47,8 @@ requirements:
     # See https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
     - xorg-libxfixes  # [linux]
   run:
-    - eccodes >=2.18.0
-    - magics-metview
+    - eccodes >=2.19.0
+    - magics-metview >=4.5.0
     - qt
     - flex
     - bison
