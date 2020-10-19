@@ -68,6 +68,10 @@ make -j $CPU_COUNT VERBOSE=1
 echo "Including the following tests:"
 cat test_list.txt
 echo ""
+
+# temporary fix to ensure the data files required for the regrid.mv test are where they should be:
+cp $SRC_DIR/metview/test/data/z_for_spectra.grib metview/test/macros/
+
 cd metview
 ctest --output-on-failure -j $CPU_COUNT -I ../test_list.txt
 cd ..
