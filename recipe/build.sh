@@ -26,8 +26,8 @@ mkdir ../build && cd ../build
 # This should be removed once the tests are fixed internally at ECMWF.
 if [[ $(uname) == Linux ]]; then
     # 25: inline_c.mv_dummy_target (not surprising and not important for 99% of people)
-    # 33: fieldsets.mv (often this one hangs on Linux on conda for unknown reasons)
-    export TESTS_TO_SKIP="25,33"
+    # 34: fieldsets.mv (often this one hangs on Linux on conda for unknown reasons)
+    export TESTS_TO_SKIP="25,34"
 elif [[ $(uname) == Darwin ]]; then
     # 25: inline_c.mv_dummy_target (not surprising and not important for 99% of people)
     # 36: geopoints.mv_dummy_target (only fails on macos on conda)
