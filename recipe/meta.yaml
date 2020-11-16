@@ -13,7 +13,7 @@ source:
     - 0002-Pass-CPP-to-rpcgen.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   detect_binary_files_with_prefix: true
 
@@ -59,6 +59,9 @@ requirements:
 
 test:
   commands:
+    - test -f $PREFIX/lib/metview-bundle/lib/libMvMacro${SHLIB_EXT}
+    - test -f $PREFIX/lib/metview-bundle/bin/XSection
+    - test -f $PREFIX/bin/metview
     - conda inspect linkages -p $PREFIX metview
     - conda inspect objects -p $PREFIX metview  # [osx]
 
