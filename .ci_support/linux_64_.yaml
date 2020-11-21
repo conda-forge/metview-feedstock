@@ -1,5 +1,3 @@
-boost:
-- 1.74.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -25,8 +23,6 @@ libnetcdf:
 openblas:
 - 0.3.*
 pin_run_as_build:
-  boost:
-    max_pin: x.x.x
   curl:
     max_pin: x
   fftw:

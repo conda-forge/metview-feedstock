@@ -13,7 +13,7 @@ source:
     - 0002-Pass-CPP-to-rpcgen.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   detect_binary_files_with_prefix: true
 
@@ -35,8 +35,7 @@ requirements:
   host:
     - curl
     - eccodes >=2.19.0
-    - magics-metview >=4.5.0
-    - boost
+    - magics-metview >=4.5.1
     - qt
     - flex
     - bison
@@ -48,7 +47,7 @@ requirements:
     - xorg-libxfixes  # [linux]
   run:
     - eccodes >=2.19.0
-    - magics-metview >=4.5.0
+    - magics-metview >=4.5.1
     - qt
     - flex
     - bison
