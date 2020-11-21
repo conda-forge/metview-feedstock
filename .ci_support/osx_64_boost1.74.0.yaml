@@ -1,11 +1,11 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost:
-- '1.72'
+- 1.74.0
 c_compiler:
 - clang
 c_compiler_version:
-- '9'
+- '10'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -15,17 +15,15 @@ curl:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '9'
+- '10'
 fftw:
 - '3'
 libnetcdf:
 - 4.7.4
 macos_machine:
 - x86_64-apple-darwin13.4.0
-macos_min_version:
-- '10.9'
 openblas:
-- 0.3.6
+- 0.3.*
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -33,9 +31,12 @@ pin_run_as_build:
     max_pin: x
   fftw:
     max_pin: x
-  openblas:
-    max_pin: x.x.x
   qt:
     max_pin: x.x
 qt:
 - '5.12'
+target_platform:
+- osx-64
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
