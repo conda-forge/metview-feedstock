@@ -1,5 +1,5 @@
 {% set name = "Metview" %}
-{% set version = "5.10.1" %}
+{% set version = "5.10.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://confluence.ecmwf.int/download/attachments/3964985/{{ name }}-{{ version }}-Source.tar.gz
-  sha256: 92908bb691fa32b5257d0639b2f95fa9916905ad5199502ca5a508427fffde1e
+  sha256: 32219c13b0c9fd831857af1f22d790fd8c7caba512cac0b982e9ff418f2858fe
   patches:
     - 0001-Use-find_package-instead-of-find_library-for-threads.patch
     - 0002-Pass-CPP-to-rpcgen.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   detect_binary_files_with_prefix: true
 
@@ -34,8 +34,8 @@ requirements:
     - {{ cdt('libxau') }}  # [linux]
   host:
     - curl
-    - eccodes >=2.19.0
-    - magics-metview >=4.5.1
+    - eccodes >=2.20.0
+    - magics-metview >=4.5.3
     - qt
     - flex
     - bison
@@ -46,8 +46,8 @@ requirements:
     # See https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
     - xorg-libxfixes  # [linux]
   run:
-    - eccodes >=2.19.0
-    - magics-metview >=4.5.1
+    - eccodes >=2.20.0
+    - magics-metview >=4.5.3
     - qt
     - flex
     - bison
@@ -61,8 +61,6 @@ test:
     - test -f $PREFIX/lib/metview-bundle/lib/libMvMacro${SHLIB_EXT}
     - test -f $PREFIX/lib/metview-bundle/bin/XSection
     - test -f $PREFIX/bin/metview
-    - conda inspect linkages -p $PREFIX metview
-    - conda inspect objects -p $PREFIX metview  # [osx]
 
 about:
   home: https://confluence.ecmwf.int/display/METV/
