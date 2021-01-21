@@ -34,8 +34,8 @@ requirements:
     - {{ cdt('libxau') }}  # [linux]
   host:
     - curl
-    - eccodes >=2.19.0
-    - magics-metview >=4.5.1
+    - eccodes >=2.20.0
+    - magics-metview >=4.5.3
     - qt
     - flex
     - bison
@@ -46,8 +46,8 @@ requirements:
     # See https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
     - xorg-libxfixes  # [linux]
   run:
-    - eccodes >=2.19.0
-    - magics-metview >=4.5.1
+    - eccodes >=2.20.0
+    - magics-metview >=4.5.3
     - qt
     - flex
     - bison
