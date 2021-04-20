@@ -17,7 +17,7 @@ cxx_compiler_version:
 fftw:
 - '3'
 libnetcdf:
-- 4.7.4
+- 4.8.0
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openblas:
