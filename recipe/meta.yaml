@@ -38,6 +38,7 @@ requirements:
     - magics-metview >=4.8.0
     - qt
     - flex
+    - glib
     - bison
     - libnetcdf
     - gdbm
