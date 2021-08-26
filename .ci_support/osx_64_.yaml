@@ -18,6 +18,8 @@ cxx_compiler_version:
 - '11'
 fftw:
 - '3'
+glib:
+- '2'
 libnetcdf:
 - 4.8.0
 macos_machine:
