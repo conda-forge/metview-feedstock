@@ -21,25 +21,9 @@ fi
 
 mkdir ../build && cd ../build
 
-# A few tests are currently failing - these appear to be issues with the code rather than with the
-# build process. We generate a list of tests to pass to ctest by skipping the failing ones.
-# This should be removed once the tests are fixed internally at ECMWF.
-if [[ $(uname) == Linux ]]; then
-    # 26: inline_c.mv_dummy_target (not surprising and not important for 99% of people)
-    # 34: fieldsets.mv (often this one hangs on Linux on conda for unknown reasons)
-    # was: export TESTS_TO_SKIP="25,34"
-    export TESTS_TO_SKIP="26"
-elif [[ $(uname) == Darwin ]]; then
-    # 26: inline_c.mv_dummy_target (not surprising and not important for 99% of people)
-    # 36: geopoints.mv_dummy_target (only fails on macos on conda)
-    # 41: thermo.mv_dummy_target (fixed in Metview 5.8.0)
-    # was: export TESTS_TO_SKIP="25,36,41"
-    export TESTS_TO_SKIP="26"
-fi
+# do not run the 'inline' tests, as they are expected to fail
+CTEST_OPTIONS="--exclude-regex inline"
 
-# NUM_TESTS should be at least the total number of tests that we have;
-# it does no harm to have a larger number
-NUM_TESTS=99 python $RECIPE_DIR/gen_test_list.py
 
 if [[ $(uname) == Linux ]]; then
     # rpcgen searches for cpp in /lib/cpp and /cpp.
@@ -71,14 +55,11 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
 
 make -j $CPU_COUNT VERBOSE=1
 
-echo "Including the following tests:"
-cat test_list.txt
-echo ""
 
 # temporary fix to ensure the data files required for the regrid.mv test are where they should be:
 cp $SRC_DIR/metview/test/data/z_for_spectra.grib metview/test/macros/
 
 cd metview
-ctest --output-on-failure -j $CPU_COUNT -I ../test_list.txt
+ctest --output-on-failure -j $CPU_COUNT ${CTEST_OPTIONS}
 cd ..
 make install
