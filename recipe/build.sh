@@ -40,7 +40,7 @@ else
     RPCGEN_USE_CPP_ENV=0
 fi
 
-cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
+cmake ${CMAKE_ARGS} -D CMAKE_INSTALL_PREFIX=$PREFIX \
       -D CMAKE_BUILD_TYPE=Release \
       -D ENABLE_ECKIT_CMD=OFF \
       -D ENABLE_DOCS=0 \
@@ -60,6 +60,8 @@ make -j $CPU_COUNT VERBOSE=1
 cp $SRC_DIR/metview/test/data/z_for_spectra.grib metview/test/macros/
 
 cd metview
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 ctest --output-on-failure -j $CPU_COUNT ${CTEST_OPTIONS}
+fi
 cd ..
 make install
