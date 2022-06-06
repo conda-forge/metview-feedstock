@@ -19,7 +19,9 @@ build:
 
 requirements:
   build:
+    - bison
     - cmake
+    - flex
     - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
