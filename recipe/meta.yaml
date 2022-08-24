@@ -1,5 +1,5 @@
 {% set name = "Metview" %}
-{% set version = "5.16.0" %}
+{% set version = "5.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://confluence.ecmwf.int/download/attachments/3964985/{{ name }}-{{ version }}-Source.tar.gz
-  sha256: d1959585aef7da39096233c6cd2ede17d91091cb6eb628ae25759329955b4419
+  sha256: 05adf8bf4fdac81fee8b9f1366d24b772df3d262b83f9ecfe54ad79c257563bb
   patches:
     - 0001-Use-find_package-instead-of-find_library-for-threads.patch
     - 0002-Pass-CPP-to-rpcgen.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   detect_binary_files_with_prefix: true
 
