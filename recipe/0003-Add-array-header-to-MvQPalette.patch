@@ -1,0 +1,23 @@
+From 809cefdb842dc3235aaad8bbb32b80d6195f982d Mon Sep 17 00:00:00 2001
+From: Iain Russell <Iain.Russell@ecmwf.int>
+Date: Thu, 25 Aug 2022 09:12:27 +0000
+Subject: [PATCH] BUILD: add array header to MvQPalette.cc [METV-3290]
+
+---
+ metview/src/libMvQtUtil/MvQPalette.cc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/metview/src/libMvQtUtil/MvQPalette.cc b/metview/src/libMvQtUtil/MvQPalette.cc
+index 7f2e05dcd..5ab4491c1 100644
+--- a/metview/src/libMvQtUtil/MvQPalette.cc
++++ b/metview/src/libMvQtUtil/MvQPalette.cc
+@@ -19,6 +19,7 @@
+ #endif
+ 
+ #include <algorithm>
++#include <array>
+ #include <cmath>
+ #include <ctype.h>
+ 
+-- 
+2.27.0
