@@ -24,11 +24,6 @@ libnetcdf:
 - 4.8.1
 openblas:
 - 0.3.*
-pin_run_as_build:
-  curl:
-    max_pin: x
-  fftw:
-    max_pin: x
 qt_main:
 - '5.15'
 target_platform:
