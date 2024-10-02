@@ -1,5 +1,5 @@
 {% set name = "Metview" %}
-{% set version = "5.22.0" %}
+{% set version = "5.23.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://confluence.ecmwf.int/download/attachments/3964985/{{ name }}-{{ version }}-Source.tar.gz
-  sha256: 697fa3f9b33a5d483aa91c7df1b36ac711c60e157c733082cff0334ce1d4f30f
+  sha256: a9f77dc6e9c0956fa34193611c1c3b169dc72fc5c37a0ed9a0193b1762997514
   patches:
     - 0001-Use-find_package-instead-of-find_library-for-threads.patch
     - 0002-Pass-CPP-to-rpcgen.patch
@@ -25,6 +25,7 @@ requirements:
     - make
     - python
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ cdt('mesa-libgl-devel') }}  # [linux]
     - {{ cdt('mesa-dri-drivers') }}  # [linux]
@@ -59,7 +60,6 @@ requirements:
     - gdbm
     - fftw
     - openblas
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
   commands:
