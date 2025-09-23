@@ -1,0 +1,24 @@
+
+From 79a90d1112d874ecc073d81cc5450095b9079d59 Mon Sep 17 00:00:00 2001
+From: Iain Russell <Iain.Russell@ecmwf.int>
+Date: Wed, 2 Jul 2025 10:45:26 +0000
+Subject: [PATCH] eckit::geo include algorithm header
+
+---
+ src/eckit/geo/cache/Unzip.cc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/eckit/geo/cache/Unzip.cc b/src/eckit/geo/cache/Unzip.cc
+index 236832ab4..094d50619 100644
+--- a/eckit/src/eckit/geo/cache/Unzip.cc
++++ b/eckit/src/eckit/geo/cache/Unzip.cc
+@@ -9,6 +9,7 @@
+  * does it submit to any jurisdiction.
+  */
+ 
++#include <algorithm>
+ 
+ #include "eckit/geo/cache/Unzip.h"
+ 
+-- 
+2.43.5
