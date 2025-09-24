@@ -25,7 +25,9 @@ fftw:
 glib:
 - '2'
 libnetcdf:
-- 4.9.2
+- 4.9.3
+libzip:
+- '1'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openblas:
