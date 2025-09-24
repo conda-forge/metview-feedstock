@@ -1,0 +1,30 @@
+From 61ceb5473906b12b2ed2bbab3202204dc150639c Mon Sep 17 00:00:00 2001
+From: Iain Russell <Iain.Russell@ecmwf.int>
+Date: Thu, 18 Sep 2025 12:40:18 +0100
+Subject: [PATCH] eckit::geo fix linking of libzip
+
+---
+ src/eckit/geo/CMakeLists.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/src/eckit/geo/CMakeLists.txt b/src/eckit/geo/CMakeLists.txt
+index e97931793..73c384a2c 100644
+--- a/eckit/src/eckit/geo/CMakeLists.txt
++++ b/eckit/src/eckit/geo/CMakeLists.txt
+@@ -217,9 +217,13 @@ if(eckit_HAVE_GEO_GRID_ORCA)
+     list(APPEND eckit_GEO_SHARE_GRID "~eckit/share/eckit/geo/ORCA.yaml")
+ endif()
+
++if(eckit_HAVE_ZIP)
++      list(APPEND eckit_geo_libs libzip::zip)
++endif()
++
+ if(eckit_HAVE_GEO_AREA_SHAPEFILE)
+     list(APPEND eckit_geo_srcs area/library/Shapefile.cc area/library/Shapefile.h)
+-    list(APPEND eckit_geo_libs shapelib::shp libzip::zip)
++    list(APPEND eckit_geo_libs shapelib::shp)
+ endif()
+
+ string(REPLACE ";" ":" eckit_GEO_SHARE_GRID "${eckit_GEO_SHARE_GRID}")
+--
+2.39.5 (Apple Git-154)

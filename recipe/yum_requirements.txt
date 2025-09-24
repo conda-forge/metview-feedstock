@@ -4,6 +4,6 @@ libselinux
 libXdamage
 libXfixes
 libXxf86vm
-libXcb
+libxcb
 libXext
 libXau

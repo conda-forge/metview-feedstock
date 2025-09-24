@@ -1,0 +1,23 @@
+From 440ae82f6aed92fd8542ac882d017cc43fca2c64 Mon Sep 17 00:00:00 2001
+From: Iain Russell <Iain.Russell@ecmwf.int>
+Date: Wed, 2 Jul 2025 12:04:52 +0000
+Subject: [PATCH] eckit::geo include memory header
+
+---
+ src/eckit/geo/cache/Unzip.cc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/eckit/geo/cache/Unzip.cc b/src/eckit/geo/cache/Unzip.cc
+index 094d50619..0fcecdd62 100644
+--- a/eckit/src/eckit/geo/cache/Unzip.cc
++++ b/eckit/src/eckit/geo/cache/Unzip.cc
+@@ -10,6 +10,7 @@
+  */
+ 
+ #include <algorithm>
++#include <memory>
+ 
+ #include "eckit/geo/cache/Unzip.h"
+ 
+-- 
+2.43.5
