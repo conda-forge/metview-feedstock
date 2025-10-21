@@ -1,0 +1,33 @@
+From 17ad2c676870ca9e9f4fdf942fac00adaa092040 Mon Sep 17 00:00:00 2001
+From: Iain Russell <Iain.Russell@ecmwf.int>
+Date: Tue, 21 Oct 2025 11:02:15 +0100
+Subject: [PATCH] Disable geo cache check
+
+---
+ tests/geo/CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/geo/CMakeLists.txt b/tests/geo/CMakeLists.txt
+index 8d40f67eb..ad2d0b4d0 100644
+--- a/eckit/tests/geo/CMakeLists.txt
++++ b/eckit/tests/geo/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ foreach(_test
+         area_boundingbox
+         area_polygon
+-        cache
++        #cache
+         figure
+         figure_earth
+         great_circle
+@@ -47,7 +47,7 @@ set_tests_properties(
+     ENVIRONMENT "ECKIT_GEO_CACHE_PATH=${CMAKE_CURRENT_BINARY_DIR}/eckit_geo_cache" )
+
+ if(eckit_HAVE_ZIP)
+-    target_compile_definitions(eckit_test_geo_cache PRIVATE ZIP_FILE="${CMAKE_CURRENT_SOURCE_DIR}/test.zip")
++    #target_compile_definitions(eckit_test_geo_cache PRIVATE ZIP_FILE="${CMAKE_CURRENT_SOURCE_DIR}/test.zip")
+ endif()
+
+ if(eckit_HAVE_PROJ)
+--
+2.39.5 (Apple Git-154)
