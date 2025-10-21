@@ -13,7 +13,6 @@ source:
     - 0002-Pass-CPP-to-rpcgen.patch
     - 0003-eckit-geo-include-algorithm-header.patch
     - 0004-eckit-geo-include-memory-header.patch
-    - 0005-eckit-geo-fix-linking-of-libzip.patch
 
 build:
   number: 0
