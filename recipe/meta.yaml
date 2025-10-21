@@ -13,6 +13,7 @@ source:
     - 0002-Pass-CPP-to-rpcgen.patch
     - 0003-eckit-geo-include-algorithm-header.patch
     - 0004-eckit-geo-include-memory-header.patch
+    - 0006-Disable-geo-cache-check.patch
 
 build:
   number: 0
