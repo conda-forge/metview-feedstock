@@ -16,7 +16,7 @@ source:
     - 0006-Disable-geo-cache-check.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   detect_binary_files_with_prefix: true
 
@@ -30,15 +30,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxfixes') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
-    - {{ cdt('libxcb') }}  # [linux]
-    - {{ cdt('libxext') }}  # [linux]
-    - {{ cdt('libxau') }}  # [linux]
   host:
     - curl
     - shapelib
@@ -55,6 +46,7 @@ requirements:
     - libzip  # [osx]
     # See https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
     - xorg-libxfixes  # [linux]
+    - libgl-devel                    # [linux]
   run:
     - eccodes >=2.32.0
     - magics-metview >=4.10.0
