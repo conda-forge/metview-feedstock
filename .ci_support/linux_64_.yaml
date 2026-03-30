@@ -23,7 +23,7 @@ fftw:
 glib:
 - '2'
 libnetcdf:
-- 4.9.3
+- 4.10.0
 openblas:
 - 0.3.*
 qt_main:
