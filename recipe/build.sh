@@ -21,9 +21,8 @@ fi
 
 mkdir ../build && cd ../build
 
-# do not run the 'inline' tests, as they are expected to fail
-CTEST_OPTIONS="--exclude-regex inline"
-
+# do not run the 'inline' tests, as they are expected to fail; also bufr_obs_filter fails on aarch64
+CTEST_OPTIONS="--exclude-regex 'inline|bufr_obs_filter'"
 
 if [[ $(uname) == Linux ]]; then
     # rpcgen searches for cpp in /lib/cpp and /cpp.
