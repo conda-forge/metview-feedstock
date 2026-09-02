@@ -31,7 +31,7 @@ if [[ $(uname) == Linux ]]; then
     # $CPP on conda-forge is a path to a binary of form `x86_64-conda_cos6-linux-gnu-cpp` which
     # causes rpcgen to fail to find it.
     # Therefore we create a symlink which rpcgen can use.
-    ln -s "$CPP" ./cpp
+    ln -s "$BUILD_PREFIX/bin/$CPP" ./cpp
     export CPP="$PWD/cpp"
     RPCGEN_USE_CPP_ENV=1
     RPCGEN_PATH_FLAGS="-DRPCGEN_PATH=/usr/bin"
