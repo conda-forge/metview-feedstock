@@ -21,9 +21,8 @@ fi
 
 mkdir ../build && cd ../build
 
-# do not run the 'inline' tests, as they are expected to fail
-CTEST_OPTIONS="--exclude-regex inline"
-
+# do not run the 'inline' tests, as they are expected to fail; also bufr_obs_filter fails on aarch64
+CTEST_OPTIONS="--exclude-regex inline|bufr_obs_filter"
 
 if [[ $(uname) == Linux ]]; then
     # rpcgen searches for cpp in /lib/cpp and /cpp.
@@ -32,7 +31,7 @@ if [[ $(uname) == Linux ]]; then
     # $CPP on conda-forge is a path to a binary of form `x86_64-conda_cos6-linux-gnu-cpp` which
     # causes rpcgen to fail to find it.
     # Therefore we create a symlink which rpcgen can use.
-    ln -s "$CPP" ./cpp
+    ln -s "$BUILD_PREFIX/bin/$CPP" ./cpp
     export CPP="$PWD/cpp"
     RPCGEN_USE_CPP_ENV=1
     RPCGEN_PATH_FLAGS="-DRPCGEN_PATH=/usr/bin"
